@@ -236,17 +236,6 @@ The tool generates three primary visualizations (as shown in Figure 1 of the pap
 - **Category filtering**: Restricts to CS (`cs.*`) and Statistics (`stat.*`) categories; may exclude relevant work in other domains
 - **Threshold sensitivity**: Co-occurrence heatmap filters categories with <50 papers; adjustment may reveal different patterns
 
-## Future Extensions
-
-Potential enhancements for researchers building on this tool:
-
-1. **Citation Network Analysis**: Integrate with Semantic Scholar or CrossRef APIs for citation graphs
-2. **Author Collaboration Networks**: Map co-authorship patterns across themes
-3. **Semantic Analysis**: Use NLP techniques (topic modeling, embeddings) for deeper thematic discovery
-4. **Comparative Corpus Analysis**: Compare multiple search queries or time periods
-5. **Interactive Visualizations**: Implement Plotly or Bokeh for explorable charts
-6. **Export Capabilities**: Generate LaTeX tables or publication-ready figures
-
 ## Citation
 
 If you use this tool in your research, please cite the associated paper:
@@ -269,8 +258,6 @@ This codebase is licensed under the terms of the [MIT License](LICENSE).
 **Adnan Mahmud**  
 University of Edinburgh  
 Email: s2887048@ed.ac.uk
-
-For questions, suggestions, or collaboration inquiries, please [open an issue](https://github.com/yourusername/arxiv-literature-review/issues) or contact via [your email/contact method].
 
 ## Acknowledgments
 
