@@ -94,128 +94,6 @@ SEARCH_QUERY = '((ti:Bayesian OR abs:Bayesian OR ti:"Uncertainty Quantification"
 # Maximum results to fetch
 MAX_RESULTS = 10000
 ```
-
-### Custom Search Queries
-
-The tool supports arXiv's search syntax:
-- `ti:keyword` - Search in title
-- `abs:keyword` - Search in abstract
-- `all:keyword` - Search everywhere
-- Boolean operators: `AND`, `OR`
-- Phrase search: Use quotes `"exact phrase"`
-
-Example custom query:
-```python
-SEARCH_QUERY = '(ti:"machine learning" OR ti:"deep learning") AND (all:robotics OR all:autonomous)'
-```
-
-### Customizing Themes
-
-To analyze different thematic categories, modify the `themes` dictionary in `thematic_analysis()`:
-
-```python
-themes = {
-    'T_Your_Theme': ['keyword1', 'keyword2', 'keyword3'],
-    'M_Your_Method': ['method1', 'approach', 'technique'],
-    # Add more themes as needed
-}
-```
-
-## Function Reference
-
-### Utility Functions
-
-#### `clean_theme_name(theme_key)`
-Converts internal theme keys (e.g., `'T_Digital_Twins'`) to display-friendly names (e.g., `'Digital Twins'`).
-
-**Parameters:**
-- `theme_key` (str): Theme identifier with prefix (T_ or M_)
-
-**Returns:**
-- str: Cleaned theme name for visualization
-
-### Data Retrieval Functions
-
-#### `fetch_arxiv_papers(query, max_results)`
-Retrieves papers from arXiv based on search query.
-
-**Parameters:**
-- `query` (str): Structured arXiv search query
-- `max_results` (int): Maximum number of papers to fetch
-
-**Returns:**
-- pandas.DataFrame: Paper metadata including title, abstract, year, categories, authors, URL
-
-**Notes:**
-- Sorts by submission date (newest first)
-- Filters categories to CS and Statistics domains
-- Includes error handling for API failures
-
-### Analysis Functions
-
-#### `temporal_analysis(df)`
-Analyzes and visualizes publication trends over time.
-
-**Parameters:**
-- `df` (pandas.DataFrame): DataFrame containing paper metadata with 'year' column
-
-**Output:**
-- Console: Year-by-year paper counts
-- Visualization: Bar chart of temporal trends
-
-#### `bibliometric_analysis(df)`
-Identifies top research categories and domains.
-
-**Parameters:**
-- `df` (pandas.DataFrame): DataFrame with 'categories' column
-
-**Output:**
-- Console: Top 10 most frequent arXiv categories
-
-#### `thematic_analysis(df)`
-Categorizes papers by thematic keywords and identifies dominant themes.
-
-**Parameters:**
-- `df` (pandas.DataFrame): Paper metadata DataFrame
-
-**Returns:**
-- pandas.DataFrame: Original DataFrame augmented with boolean theme flags
-
-**Output:**
-- Console: Theme occurrence counts, top papers for dominant theme
-- Visualization: Horizontal bar chart of thematic distribution
-
-#### `temporal_thematic_evolution(df_with_themes)`
-Tracks how thematic focus evolves over time.
-
-**Parameters:**
-- `df_with_themes` (pandas.DataFrame): DataFrame with theme flag columns
-
-**Output:**
-- Console: Year-by-year theme counts
-- Visualization: Multi-line chart showing theme evolution (filtered to years with >10 papers)
-
-#### `category_thematic_co_occurrence(df_with_themes)`
-Analyzes co-occurrence between research domains and themes.
-
-**Parameters:**
-- `df_with_themes` (pandas.DataFrame): DataFrame with categories and theme flags
-
-**Output:**
-- Console: Co-occurrence matrix
-- Visualization: Heatmap showing domain-theme relationships (categories with ≥50 papers)
-
-### Main Execution Function
-
-#### `main()`
-Orchestrates the complete analysis pipeline:
-1. Fetches papers from arXiv
-2. Performs temporal analysis
-3. Conducts bibliometric analysis
-4. Executes thematic categorization
-5. Analyzes temporal thematic evolution
-6. Generates domain-theme co-occurrence heatmap
-
 ## Output Examples
 
 The tool generates three primary visualizations (as shown in Figure 1 of the paper):
@@ -248,10 +126,6 @@ If you use this tool in your research, please cite the associated paper:
   year={2024}
 }
 ```
-
-## License
-
-This codebase is licensed under the terms of the [MIT License](LICENSE).
 
 ## Contact
 
